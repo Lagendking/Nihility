@@ -1,3 +1,3 @@
 if game.PlaceId == 11063612131 then
-    loadstring(game:HTTPGet(
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Lagendking/demi-hub/main/Games/TLX.lua"))()
 end
