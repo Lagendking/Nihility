@@ -4,4 +4,6 @@ elseif game.PlaceId == 8888615802 then
     loadstring(game:HttpGet("https://raw.githubusercontent.com/Lagendking/Nihility/main/Games/RainbowFriends.lua"))()
 elseif game.PlaceId == 3101667897 then
     loadstring(game:HttpGet("https://raw.githubusercontent.com/Lagendking/Nihility/main/Games/LOS/Main.lua"))()
+elseif game.PlaceId == 3276265788 then
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Lagendking/Nihility/main/Games/LOS/Desert.lua"))()
 end
