@@ -237,7 +237,7 @@ if PESPToggle then
                     ESP.Name = "ESP"
                     ESP.Parent = child.Character or child.CharacterAdded:Wait()
                     ESP.FillColor = PESPColor
-                    ESP.FillTransparencxy = .2
+                    ESP.FillTransparency = .2
                     local BillboardGui = Instance.new("BillboardGui")
                     local Frame = Instance.new("Frame")
                     local TextLabel = Instance.new("TextLabel")
