@@ -1,7 +1,7 @@
 ---> Nihility Hub | +1 jump every second <---
 
 ---> Settings <---
-local GameName = "SquidGame"
+local GameName = "+1 Jump"
 local TabName = "Main"
 local RunService = game:GetService("RunService")
 local Lighting = game:GetService("Lighting")
