@@ -1,6 +1,6 @@
 local NV = {}
 
-function NV:Main(Gamename, fun)
+function NV:Main(Gamename, fun())
     ---> Nihility Hub <---
 
     ---> Settings <---
