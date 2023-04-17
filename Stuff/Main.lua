@@ -1,6 +1,6 @@
 local NV = {}
 
-function NV:Main(Gamename, fun)
+function NV:Main(Gamename)
     local fun = fun or function() end
     ---> Nihility Hub <---
 
@@ -280,5 +280,15 @@ function NV:Main(Gamename, fun)
             SlidersStart()
         end,
     })
-    pcall(fun)
+    
+    local Thing = {}
+    
+    function Thing:CreateButton(TabName, ButtonName, callback)
+        local Button = TabName:CreateButton({
+            Name = ButtonName,
+            Callback = function()
+                pcall(callback)
+            end,
+        })
+    end
 end
