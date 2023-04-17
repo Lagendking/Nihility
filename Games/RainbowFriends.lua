@@ -1,7 +1,7 @@
 ---> Nihility Hub | Rainbow Friends <---
 
 ---> Settings <---
-local GameName = "SquidGame"
+local GameName = "Rainbow Friends"
 local TabName = "Main"
 local RunService = game:GetService("RunService")
 local Lighting = game:GetService("Lighting")
