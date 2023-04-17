@@ -1,21 +1,21 @@
 ---> Nihility Hub | Rainbow Friends <---
 
 ---> Settings <---
-local GameName = "RainbowFriends"
+local GameName = "SquidGame"
 local TabName = "Main"
 local RunService = game:GetService("RunService")
-getgenv().AutoWin = false
-getgenv().MonsterESP = false
-getgenv().ItemESP = false
+local Lighting = game:GetService("Lighting")
 getgenv().antiAFK = false
 getgenv().FullBright = false
 getgenv().NoClip = false
+getgenv().PlayerESP = false
+getgenv().AutoWin = false
 
 ---> Misc Settings <---
 local AAFKToggle = true
 local NCToggle = true
 local FBToggle = true
-local PESPToggle = false
+local PESPToggle = true
 
 
 ---> Create The GUI <---
@@ -30,7 +30,7 @@ local Window = Rayfield:CreateWindow({
       FileName = GameName
    },
    Discord = {
-      Enabled = false,
+      Enabled = true,
       Invite = "bRRdvBDhup",
       RememberJoins = true
    },
@@ -142,31 +142,12 @@ local IESPToggle = Tab:CreateToggle({
 
 ---> AntiAFK <---
 if AAFKToggle then
-    local GC = getconnections or get_signal_cons
     local antiAFKToggle = Tab2:CreateToggle({
         Name = "Anti AFK",
         CurrentValue = false,
         Flag = "AntiAFK",
         Callback = function(Value)
             antiAFK = Value
-            local e_d
-            if antiAFK then
-                e_d = "Enabled"
-            else
-                e_d = "Disabled                                                "
-            end
-            Rayfield:Notify({
-                Title = "AntiAFK",
-                Content = "Has Been ".. e_d,
-                Duration = 1,
-                Image = 4483362458,
-                Actions = {
-                    Ignore = {
-                        Name = "Hide",
-                        Callback = function()end
-                   },
-                },
-            })
             game:GetService("Players").LocalPlayer.Idled:connect(function()
                 if antiAFK then
                     vu:Button2Down(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
@@ -191,24 +172,6 @@ if FBToggle then
         Flag = "FullBright",
         Callback = function(Value)
             FullBright = Value
-            local e_d
-            if FullBright then
-                e_d = "Enabled"
-            else
-                e_d = "Disabled                                                "
-            end
-            Rayfield:Notify({
-                Title = "Full Bright",
-                Content = "Has Been ".. e_d,
-                Duration = 1,
-                Image = 4483362458,
-                Actions = {
-                    Ignore = {
-                        Name = "Hide",
-                        Callback = function()end
-                   },
-                },
-            })
             if FullBright then
                 Bright = Lighting.Brightness
                 Clock = Lighting.ClockTime
@@ -239,24 +202,6 @@ if NCToggle then
         Flag = "NoClip",
         Callback = function(Value)
             NoClip = Value
-            local e_d
-            if NoClip then
-                e_d = "Enabled"
-            else
-                e_d = "Disabled                                                "
-            end
-            Rayfield:Notify({
-                Title = "No Clip",
-                Content = "Has Been ".. e_d,
-                Duration = 1,
-                Image = 4483362458,
-                Actions = {
-                    Ignore = {
-                        Name = "Hide",
-                        Callback = function()end
-                   },
-                },
-            })
             local noclipping
             if NoClip then
                 function NoClipLoop()
@@ -284,25 +229,6 @@ if PESPToggle then
         Flag = "PESP",
         Callback = function(Value)
             PlayerESP = Value
-            local e_d
-            if NoClip then
-                e_d = "Enabled"
-            else
-                e_d = "Disabled                                                "
-            end
-            Rayfield:Notify({
-                Title = "Player ESP",
-                Content = "Has Been ".. e_d,
-                Duration = 1,
-                Image = 4483362458,
-                Actions = {
-                    Ignore = {
-                        Name = "Hide",
-                        Callback = function()end
-                   },
-                },
-            })
-            
         end,
     })
     local PESPColorPicker = Tab2:CreateColorPicker({
@@ -313,24 +239,58 @@ if PESPToggle then
             PESPColor = Value
         end
     })
-    spawn(function()
-        while wait(.5) do
-            if PlayerESP then
-                for _, child in pairs(game:GetService("Players"):GetPlayers()) do
-                    if not child:FindFirstChild("ESP") and child.Name ~= game:GetService("Players").LocalPlayer.Name then
-                        local ESP = Instance.new("Highlight")
-                        ESP.Name = "ESP"
-                        ESP.Parent = child.Character or child.CharacterAdded:Wait()
-                        ESP.FillColor = PESPColor
-                    elseif child:FindFirstChild("ESP") then
-                        child:FindFirstChild("ESP").FillColor = PESPColor
-                    end
+    RunService.Stepped:Connect(function()
+        if PlayerESP then
+            for _, child in pairs(game:GetService("Players"):GetPlayers()) do
+                if not child.Character:FindFirstChild("ESP") and child.Name ~= game:GetService("Players").LocalPlayer.Name and child.Character then
+                    local ESP = Instance.new("Highlight")
+                    ESP.Name = "ESP"
+                    ESP.Parent = child.Character or child.CharacterAdded:Wait()
+                    ESP.FillColor = PESPColor
+                    ESP.FillTransparencxy = .2
+                    local BillboardGui = Instance.new("BillboardGui")
+                    local Frame = Instance.new("Frame")
+                    local TextLabel = Instance.new("TextLabel")
+                    local UICorner = Instance.new("UICorner")
+                    
+                    BillboardGui.Parent = child.Character:WaitForChild("Head")
+                    BillboardGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+                    BillboardGui.Active = true
+                    BillboardGui.AlwaysOnTop = true
+                    BillboardGui.ExtentsOffset = Vector3.new(0, 2.5, 0)
+                    BillboardGui.LightInfluence = 1.000
+                    BillboardGui.Size = UDim2.new(6, 0, 1.5, 0)
+                    
+                    Frame.Parent = BillboardGui
+                    Frame.BackgroundColor3 = Color3.fromRGB(255, 0, 4)
+                    Frame.BackgroundTransparency = 1.000
+                    Frame.Size = UDim2.new(1, 0, 1, 0)
+                    
+                    TextLabel.Parent = Frame
+                    TextLabel.BackgroundColor3 = PESPColor
+                    TextLabel.BackgroundTransparency = 0.500
+                    TextLabel.Size = UDim2.new(1, 0, 1, 0)
+                    TextLabel.Font = Enum.Font.SourceSans
+                    TextLabel.Text = "Name: ".. child.Name.. "\n".. "Distance: ".. (game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position - child.Character:WaitForChild("HumanoidRootPart").Position).magnitude
+                    TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+                    TextLabel.TextScaled = true
+                    TextLabel.TextSize = 25.000
+                    TextLabel.TextStrokeTransparency = 0.100
+                    TextLabel.TextWrapped = true
+                    
+                    UICorner.Parent = TextLabel
+                elseif child.Character:FindFirstChild("ESP") then
+                    child.Character:FindFirstChild("ESP").FillColor = PESPColor
+                    child.Character:FindFirstChild("ESP").OutlineColor = PESPColor
+                    child.Character:WaitForChild("Head").BillboardGui.Frame.TextLabel.BackgroundColor3 = PESPColor
+                    child.Character:WaitForChild("Head").BillboardGui.Frame.TextLabel.Text = "Name: ".. child.Name.. "\n".. "Distance: ".. math.floor((game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position - child.Character:WaitForChild("HumanoidRootPart").Position).magnitude)
                 end
-            else
-                for _, child in pairs(game:GetService("Players"):GetPlayers()) do
-                    if child:FindFirstChild("ESP") then
-                        child:FindFirstChild("ESP"):Destroy()
-                    end
+            end
+        else
+            for _, child in pairs(game:GetService("Players"):GetPlayers()) do
+                if child.Character:FindFirstChild("ESP") then
+                    child.Character:FindFirstChild("ESP"):Destroy()
+                    child.Character:WaitForChild("Head").BillboardGui:Destroy()
                 end
             end
         end
@@ -339,6 +299,7 @@ end
 
 ---> Gravity <---
 local Gravity = workspace.Gravity
+local BrokenSliders = false
 local Slider = Tab2:CreateSlider({
     Name = "Gravity",
     Range = {0, 1000},
@@ -350,11 +311,6 @@ local Slider = Tab2:CreateSlider({
         Gravity = Value
     end,
 })
-spawn(function()
-    while wait() do
-        workspace.Gravity = Gravity
-    end
-end)
 
 ---> Speed And Jump <---
 local Speed = game:GetService("Players").LocalPlayer.Character.Humanoid.WalkSpeed
@@ -381,9 +337,29 @@ local Slider = Tab2:CreateSlider({
         Jump = Value
     end,
 })
-spawn(function()
-    while wait() do
-        game:GetService("Players").LocalPlayer.Character.Humanoid.WalkSpeed = Speed
-        game:GetService("Players").LocalPlayer.Character.Humanoid.JumpPower = Jump
-    end
-end)
+
+function SlidersStart()
+    spawn(function()
+        while true do
+            wait()
+            if not game:GetService("Players").LocalPlayer.Character:FindFirstChild("Humanoid") then return end
+            workspace.Gravity = Gravity
+            game:GetService("Players").LocalPlayer.Character.Humanoid.WalkSpeed = Speed
+            game:GetService("Players").LocalPlayer.Character.Humanoid.JumpPower = Jump
+        end
+    end)
+end
+SlidersStart()
+
+---> Fix Sliders <---
+local Fixer = Tab2:CreateButton({
+    Name = "Fix Sliders",
+    Callback = function()
+        game.Players.LocalPlayer.Character.Humanoid:Destroy()
+        wait(4)
+        local Hum = Instance.new("Humanoid")
+        Hum.Parent = game.Players.LocalPlayer.Character
+        Hum.WalkSpeed = 16
+        SlidersStart()
+    end,
+})
