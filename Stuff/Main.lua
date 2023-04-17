@@ -279,7 +279,7 @@ function NV:Main(Gamename, fun)
             SlidersStart()
         end,
     })
-    if pcall(fun()) then
+    if pcall(fun) then
         print("Worked")
     else
         print("Failed")
