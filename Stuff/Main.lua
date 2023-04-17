@@ -1,4 +1,52 @@
+---> Nihility Hub | Game Name <---
 
+---> Settings <---
+local GameName = "Name"
+local TabName = "Main"
+local RunService = game:GetService("RunService")
+local Lighting = game:GetService("Lighting")
+getgenv().antiAFK = false
+getgenv().FullBright = false
+getgenv().NoClip = false
+getgenv().PlayerESP = false
+
+---> Misc Settings <---
+local AAFKToggle = true
+local NCToggle = true
+local FBToggle = true
+local PESPToggle = true
+
+    
+---> Create The GUI <---
+local Rayfield = loadstring(game:HttpGet('https://raw.githubusercontent.com/shlexware/Rayfield/main/source'))()
+local Window = Rayfield:CreateWindow({
+   Name = "Nihility Hub | ".. GameName,
+   LoadingTitle = "Nihility Hub",
+   LoadingSubtitle = GameName,
+   ConfigurationSaving = {
+      Enabled = true,
+      FolderName = "Nihility Hub",
+      FileName = GameName
+   },
+   Discord = {
+      Enabled = false,
+      Invite = "bRRdvBDhup",
+      RememberJoins = true
+   },
+   KeySystem = false,
+   KeySettings = {
+      Title = "Sirius Hub",
+      Subtitle = "Key System",
+      Note = "Join the discord (discord.gg/sirius)",
+      FileName = "SiriusKey",
+      SaveKey = true,
+      GrabKeyFromSite = false,
+      Key = "Hello"
+   }
+})
+
+local Tab = Window:CreateTab(TabName, 4483362458)
+local Tab2 = Window:CreateTab("Misc", 4483362458)
 
 ---> Main Tab <---
 
