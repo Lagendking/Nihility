@@ -1,7 +1,7 @@
 ---> Nihility Hub | Legends Of Speed <---
 
 ---> Settings <---
-local GameName = "LegendsOfSpeed"
+local GameName = "Legends Of Speed"
 local TabName = "Main"
 local RunService = game:GetService("RunService")
 local Lighting = game:GetService("Lighting")
