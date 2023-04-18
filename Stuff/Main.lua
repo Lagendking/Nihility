@@ -12,7 +12,6 @@ getgenv().PlayerESP = false
 getgenv().Float = false
 
 ---> Misc Settings <---
-local Version = "1.2.3"
 local AAFKToggle = true
 local NCToggle = true
 local FBToggle = true
