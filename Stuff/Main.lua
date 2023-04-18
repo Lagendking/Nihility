@@ -10,12 +10,14 @@ getgenv().antiAFK = false
 getgenv().FullBright = false
 getgenv().NoClip = false
 getgenv().PlayerESP = false
+getgenv().Float = false
 
 ---> Misc Settings <---
 local AAFKToggle = true
 local NCToggle = true
 local FBToggle = true
 local PESPToggle = true
+local FToggle = true
 
     
 ---> Create The GUI <---
@@ -129,6 +131,47 @@ if NCToggle then
                     end
                 end
                 noclipping = RunService.Stepped:Connect(NoClipLoop)
+            end
+        end,
+    })
+end
+
+---> Float <---
+if FToggle then
+    local FloatToggle = Tab2:CreateToggle({
+        Name = "Float",
+        CurrentValue = false,
+        Flag = "Float",
+        Callback = function(Value)
+            Float = Value
+            if Float then
+                if not game.Players.LocalPlayer.Character:FindFirstChild("FloatPart") then
+                    spawn(function()
+                        local FloatPart = Instance.new("Part")
+                        FloatPart.Parent = game.Players.LocalPlayer.Character
+                        FloatPart.Name = "FloatPart"
+                        FloatPart.Transparency = 1
+                        FloatPart.Anchored = true
+                        
+                        while Float do
+                            wait()
+                            FloatPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0, -3.6, 0)
+                        end
+                    end)
+                else
+                    spawn(function()
+                        while Float do
+                            wait()
+                            if game.Players.LocalPlayer.Character:FindFirstChild("FloatPart") then
+                                game.Players.LocalPlayer.Character.FloatPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0, -3.6, 0)
+                            end
+                        end
+                    end)
+                end
+            else
+                if game.Players.LocalPlayer.Character:FindFirstChild("FloatPart") then
+                    game.Players.LocalPlayer.Character:FindFirstChild("FloatPart"):Destroy()
+                end
             end
         end,
     })
