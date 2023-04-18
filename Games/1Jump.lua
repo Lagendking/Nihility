@@ -3,6 +3,7 @@
 ---> Settings <---
 local GameName = "+1 Jump"
 local TabName = "Main"
+local vu = game:GetService("VirtualUser")
 local RunService = game:GetService("RunService")
 local Lighting = game:GetService("Lighting")
 getgenv().antiAFK = false
