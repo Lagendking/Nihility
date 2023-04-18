@@ -1,3 +1,4 @@
+getgenv().GameName = "Rainbow Friends"
 getgenv().AutoWin = false
 
 ---> Auto Win <---
