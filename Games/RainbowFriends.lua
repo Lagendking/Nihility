@@ -54,7 +54,7 @@ local MESPToggle = Tab:CreateToggle({
             end
             for _, child in pairs(workspace.Monsters:GetChildren()) do
                 if child:FindFirstChild("ESP") then
-                    child:FindFirstChild("ESP"):Destroy()
+                    child.ESP:Destroy()
                 end
             end
         end)
@@ -69,20 +69,23 @@ local IESPToggle = Tab:CreateToggle({
     Callback = function(Value)
         ItemESP = Value
         spawn(function()
-            while ItemESP do
-                wait()
-                for _, child in pairs(workspace:GetChildren()) do
-                    if child.Name:match("Block") or child.Name:match("Food") or child.Name:match("Fuse") or child.Name:match("Battery") and not child:FindFirstChild("ESP") then
-                        local ESP = Instance.new("Highlight")
-                        ESP.Name = "ESP"
-                        ESP.Parent = child
-                        ESP.FillColor = Color3.new(0, 1, 0)
+            if ItemESP then
+                while ItemESP do
+                    wait()
+                    for _, child in pairs(workspace:GetChildren()) do
+                        if child.Name:match("Block") or child.Name:match("Food") or child.Name:match("Fuse") or child.Name:match("Battery") and not child:FindFirstChild("ESP") then
+                            local ESP = Instance.new("Highlight")
+                            ESP.Name = "ESP"
+                            ESP.Parent = child
+                            ESP.FillColor = Color3.new(0, 1, 0)
+                        end
                     end
                 end
-            end
-            for _, child in pairs(workspace.Monsters:GetChildren()) do
-                if child:FindFirstChild("ESP") and child.Name:match("Block") or child.Name:match("Food") or child.Name:match("Fuse") or child.Name:match("Battery") then
-                    child:FindFirstChild("ESP"):Destroy()
+            else
+                for _, child in pairs(workspace.Monsters:GetChildren()) do
+                    if child:FindFirstChild("ESP") and child.Name:match("Block") or child.Name:match("Food") or child.Name:match("Fuse") or child.Name:match("Battery") then
+                        child:FindFirstChild("ESP"):Destroy()
+                    end
                 end
             end
         end)
