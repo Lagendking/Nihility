@@ -23,7 +23,7 @@ local PESPToggle = false
 ---> Create The GUI <---
 local Rayfield = loadstring(game:HttpGet('https://raw.githubusercontent.com/shlexware/Rayfield/main/source'))()
 local Window = Rayfield:CreateWindow({
-   Name = "Nihility Hub | ".. GameName,
+   Name = "Nihility Hub | ".. "+1 Jump",
    LoadingTitle = "Nihility Hub",
    LoadingSubtitle = GameName,
    ConfigurationSaving = {
