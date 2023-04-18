@@ -23,13 +23,13 @@ local FToggle = true
 ---> Create The GUI <---
 local Rayfield = loadstring(game:HttpGet('https://raw.githubusercontent.com/shlexware/Rayfield/main/source'))()
 local Window = Rayfield:CreateWindow({
-Name = "Nihility Hub | ".. GameName,
+Name = "Nihility Hub",
 LoadingTitle = "Nihility Hub",
-LoadingSubtitle = GameName,
+LoadingSubtitle = "",
 ConfigurationSaving = {
   Enabled = true,
-  FolderName = "Nihility Hub",
-  FileName = GameName
+  FolderName = "NihilityHub/GameSaves",
+  FileName = game.PlaceId
 },
 Discord = {
   Enabled = false,
