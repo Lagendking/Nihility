@@ -3,6 +3,7 @@
 ---> Settings <---
 local GameName = "Legends of speed"
 local TabName = "Main"
+local vu = game:GetService("VirtualUser")
 local RunService = game:GetService("RunService")
 local Lighting = game:GetService("Lighting")
 getgenv().antiAFK = false
