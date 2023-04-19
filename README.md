@@ -4,6 +4,8 @@
 loadstring(game:HttpGet("https://raw.githubusercontent.com/Lagendking/Nihility/main/script.lua"))()
 ```
 
+<br/>
+
 ## Supported Games:
 
 **Game** | **PlaceId**
@@ -14,7 +16,9 @@ Every Second You Get +1 Points | 12114398020
 Legends Of Speed | 3101667897
 Rainbow Friends | 7991339063
 
+
 <br/><br/>
+
 
 <br/><br/>
 
