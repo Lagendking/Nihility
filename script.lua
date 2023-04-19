@@ -1,5 +1,5 @@
 if game.PlaceId == 11063612131 then
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/Lagendking/Nihility/main/Games/1Jump.lua"))()
+    loadfile("NihilityHub/Games/1Jump")()
 elseif game.PlaceId == 8888615802 then
     loadfile("NihilityHub/Games/RainbowFriends.txt")()
 elseif game.PlaceId == 3101667897 then
