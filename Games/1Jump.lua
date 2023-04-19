@@ -76,5 +76,3 @@ local EggDropdown = Tab:CreateDropdown({
         print(egg)
    end,
 })
-
-Main()
