@@ -8,4 +8,8 @@ if (writefile) then
     ---> +1 jump <---
     writefile("NihilityHub/Games/1Jump.txt", game:HttpGet("https://raw.githubusercontent.com/Lagendking/Nihility/main/Stuff/Main.lua"))
     appendfile("NihilityHub/Games/1Jump.txt", game:HttpGet("https://raw.githubusercontent.com/Lagendking/Nihility/main/Games/1Jump.lua"))
+    
+    ---> +1 Point <---
+    writefile("NihilityHub/Games/1Point.txt", game:HttpGet("https://raw.githubusercontent.com/Lagendking/Nihility/main/Stuff/Main.lua"))
+    appendfile("NihilityHub/Games/1Point.txt", game:HttpGet("https://raw.githubusercontent.com/Lagendking/Nihility/main/Games/1Point.lua"))
 end
