@@ -6,6 +6,6 @@ if (writefile) then
     appendfile("NihilityHub/Games/RainbowFriends.txt", game:HttpGet("https://raw.githubusercontent.com/Lagendking/Nihility/main/Games/RainbowFriends.lua"))
     
     ---> +1 jump <---
-    writefile("NihilityHub/Games/1jump.txt", game:HttpGet("https://raw.githubusercontent.com/Lagendking/Nihility/main/Stuff/Main.lua"))
-    appendfile("NihilityHub/Games/1jump.txt", game:HttpGet("https://raw.githubusercontent.com/Lagendking/Nihility/main/Games/1Jump.lua"))
+    writefile("NihilityHub/Games/1Jump.txt", game:HttpGet("https://raw.githubusercontent.com/Lagendking/Nihility/main/Stuff/Main.lua"))
+    appendfile("NihilityHub/Games/1Jump.txt", game:HttpGet("https://raw.githubusercontent.com/Lagendking/Nihility/main/Games/1Jump.lua"))
 end
