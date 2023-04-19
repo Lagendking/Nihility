@@ -8,4 +8,6 @@ elseif game.PlaceId == 3276265788 then
     loadstring(game:HttpGet("https://raw.githubusercontent.com/Lagendking/Nihility/main/Games/LOS/Desert.lua"))()
 elseif game.PlaceId == 7584496019 then
     loadstring(game:HttpGet("https://raw.githubusercontent.com/Lagendking/Nihility/main/Games/99%25.lua"))()
+else
+    loadfile("NihilityHub/Main.txt")()
 end
