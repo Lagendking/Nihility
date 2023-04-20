@@ -15,7 +15,7 @@ if (writefile) then
     
     ---> 99% Fail <---
     writefile("NihilityHub/Games/99%Fail.txt", game:HttpGet("https://raw.githubusercontent.com/Lagendking/Nihility/main/Stuff/Main.lua"))
-    appendfile("NihilityHub/Games/99%Fail.txt", game:HttpGet("https://raw.githubusercontent.com/Lagendking/Nihility/main/Games/99%.lua"))
+    appendfile("NihilityHub/Games/99%Fail.txt", game:HttpGet("https://raw.githubusercontent.com/Lagendking/Nihility/main/Games/99%Fail.lua"))
     
     ---> Mega Easy <---
     writefile("NihilityHub/Games/MegaEasy.txt", game:HttpGet("https://raw.githubusercontent.com/Lagendking/Nihility/main/Stuff/Main.lua"))
