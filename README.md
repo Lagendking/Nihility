@@ -14,6 +14,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/Lagendking/Nihility/m
 Every Second You Get +1 Jump | 11063612131
 Every Second You Get +1 Points | 12114398020
 Legends Of Speed | 3101667897
+Mega Easy Obby | 3587619225
 Rainbow Friends | 7991339063
 
 
