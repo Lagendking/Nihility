@@ -91,5 +91,3 @@ local IESPToggle = Tab:CreateToggle({
         end)
     end,
 })
-
-Main()
