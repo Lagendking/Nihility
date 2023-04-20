@@ -10,6 +10,8 @@ elseif game.PlaceId == 7584496019 then
     loadfile("NihilityHub/Games/99%Fail")()
 elseif game.PlaceId == 12114398020 then
     loadfile("NihilityHub/Games/1Point.txt")()
+elseif game.PlaceId == 3587619225 then
+    loadfile("NihilityHub/Games/MegaEasy.txt")()
 else
     loadfile("NihilityHub/Main.txt")()
 end
