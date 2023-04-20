@@ -23,5 +23,5 @@ if (writefile) then
     
     ---> LOS Main <---
     writefile("NihilityHub/Games/LOSMain.txt", game:HttpGet("https://raw.githubusercontent.com/Lagendking/Nihility/main/Stuff/Main.lua"))
-    appendfile("NihilityHub/Games/LOSMain.txt", game:HttpGet("https://raw.githubusercontent.com/Lagendking/Nihility/main/Games/LOSMain.lua"))
+    appendfile("NihilityHub/Games/LOSMain.txt", game:HttpGet("https://raw.githubusercontent.com/Lagendking/Nihility/main/Games/LOS/Main.lua"))
 end
