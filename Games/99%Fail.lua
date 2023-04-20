@@ -60,18 +60,3 @@ local Shower = Tab:CreateButton({
         end
     end,
 })
-
----> Fix Sliders <---
-local Reset = Tab:CreateButton({
-    Name = "Reset Tiles",
-    Callback = function()
-        local Original = Color3.fromRGB(198, 237, 255)
-        
-        for _, Tile in pairs(game:GetService("Workspace").Map.Game.Tiles.Left:GetChildren()) do
-            Tile.Color = Original
-        end
-        for _, Tile in pairs(game:GetService("Workspace").Map.Game.Tiles.Right:GetChildren()) do
-            Tile.Color = Original
-        end
-    end,
-})
